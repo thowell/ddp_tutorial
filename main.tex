@@ -1,0 +1,26 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage,graphicx,psfrag,amsmath,amsfonts,verbatim}
+\usepackage[small,bf]{caption}
+
+\input defs.tex
+
+\bibliographystyle{alpha}
+
+\title{Differential Dynamic Programming Tutorial}
+\author{Taylor Howell}
+
+\begin{document}
+\maketitle
+
+\section{Problem Formulation}
+Differential Dynamic Programming (DDP) solves the following optimization problem:
+\begin{equation}
+\begin{array}{ll}
+\underset{x_{1:T}, u_{1:T-1}}{\mbox{minimize}} & g_T(x_T) + \sum \limits_{t = 1}^{T-1} g_t(x_t, u_t) \label{ddp_problem}\\
+\mbox{subject to} & x_{t+1} = f_t(x_t,u_t), \quad t = 1,\dots,T-1,\\
+& (x_1\,\mbox{given}).
+\end{array}
+\end{equation}
+For a system with state, $x_t \in \mathbf{R}^{n}$, control inputs, $u_t \in \mathbf{R}^{m}$, time index $t$, and subject to discrete-time dynamics, $f_t : \mathbf{R}^n \times \mathbf{R}^m \rightarrow \mathbf{R}^n$, we aim to minimize an objective with stage cost functions, $g_t: \mathbf{R}^n \times \mathbf{R}^m \rightarrow \mathbf{R}$, and terminal cost function, $g_T: \mathbf{R}^n \rightarrow \mathbf{R}$, over a planning horizon $T$.
+
+\end{document}
